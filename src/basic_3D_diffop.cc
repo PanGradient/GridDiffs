@@ -8,7 +8,9 @@
  */
 
 #include "basic_3D_diffop.h"
-#include "fornberg_nderivs.h" /* FornbergNumDerivsCoeffs */
+#include "fornberg_nderivs.h" /* FornbergNumDerivsCoeffs,
+                                 FornbergGetCoeffList,
+                                 FornbergKDerivEval */
 
 #include <cstring>            /* memcpy */
 #include <stdexcept>          /* std::invalid_argument */

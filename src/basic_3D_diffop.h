@@ -95,7 +95,7 @@ class Basic_3D_DiffOp
          *
          * const QGrid & qiVals
          *     Function values at grid points on qi axis. Order has to
-         *     correspond to grid points order. Has to be the same size
+         *     corresponds to grid points order. Has to be the same size
          *     as mQiCoords.
          *
          * ---------
