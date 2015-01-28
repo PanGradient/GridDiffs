@@ -1,3 +1,12 @@
+/*
+ * File: basic_3D_diffop.cc
+ * Author(s): P Kuszaj
+ * Last changed: 28.01.2015
+ *
+ * A source file providing Basic_3D_DiffOp class methods implementation
+ * (declared in basic_3D_diffop.h header file).
+ */
+
 #include "basic_3D_diffop.h"
 #include "fornberg_nderivs.h" /* FornbergNumDerivsCoeffs */
 
