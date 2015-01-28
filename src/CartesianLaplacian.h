@@ -3,7 +3,7 @@
  * Author(s): P Kuszaj
  * Last changed: 28.01.2015
  *
- * A header file prividing with CartesianLaplacian class used for evaluating
+ * A header file providing CartesianLaplacian class used for evaluating
  * Laplace operator at a given point in cartesian coordinate system using
  * given grid points along x, y and z axes. For further information please
  * see basic_3D_diffop.h header file.
