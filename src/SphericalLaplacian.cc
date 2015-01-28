@@ -8,7 +8,7 @@
  */
 
 #include "SphericalLaplacian.h"
-#include <cmath> /*  */
+#include <cmath> /* sin, cos */
 
 namespace GridDiff
 {
