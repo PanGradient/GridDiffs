@@ -1,7 +1,7 @@
 /*
- * File: CartesianLaplacian.h
+ * File: Laplacians.h
  * Author(s): P Kuszaj
- * Last changed: 28.01.2015
+ * Last changed: 29.01.2015
  *
  * A header file including classes describing Laplace operator in multiple
  * orthogonal coordinate systems in R^3.

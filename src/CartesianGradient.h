@@ -1,16 +1,16 @@
 /*
- * File: CartesianLaplacian.h
+ * File: CartesianGradient.h
  * Author(s): P Kuszaj
- * Last changed: 28.01.2015
+ * Last changed: 29.01.2015
  *
- * A header file providing CartesianLaplacian class used for evaluating
- * Laplace operator at a given point in cartesian coordinate system using
- * given grid points along x, y and z axes. For further information please
- * see basic_3D_diffop.h header file.
+ * A header file providing CartesianGradient class used for evaluating
+ * gradient at a given point in cartesian coordinate system using given grid
+ * points along x, y and z axes. For further information please see
+ * basic_3D_diffop.h header file.
  */
 
-#ifndef GRIDDIFF_CARTESIANLAPLACIAN_H
-#define GRIDDIFF_CARTESIANLAPLACIAN_H
+#ifndef GRIDDIFF_CARTESIANGRADIENT_H
+#define GRIDDIFF_CARTESIANGRADIENT_H
 
 #include "basic_3D_diffop.h"  /* Basic_3D_DiffOp */
 
@@ -18,12 +18,12 @@ namespace GridDiff
 {
 
 /*
- * CartesianLaplacian class
+ * CartesianGradient class
  *
- * Allows evaluation of Laplace operator at a given point in cartesian
+ * Allows evaluation of gradient at a given point in cartesian
  * coordinate system using given grid points along x, y and z axes.
  */
-class CartesianLaplacian : public Basic_3D_DiffOp
+class CartesianGradient : public Basic_3D_DiffOp
 {
     public:
         /*************
@@ -35,20 +35,20 @@ class CartesianLaplacian : public Basic_3D_DiffOp
          * constructors simply call the parent class constructors.
          * For further information please see basic_3D_diffop.h header file.
          */
-        CartesianLaplacian (const QPoint   & r0Point,
-                            const QGrid    & xCoords,
-                            const QGrid    & yCoords,
-                            const QGrid    & zCoords)
+        CartesianGradient (const QPoint   & r0Point,
+                           const QGrid    & xCoords,
+                           const QGrid    & yCoords,
+                           const QGrid    & zCoords)
 
-                          : Basic_3D_DiffOp (r0Point,
-                                             xCoords,
-                                             yCoords,
-                                             zCoords,
-                                                   2) { }
+                         : Basic_3D_DiffOp (r0Point,
+                                            xCoords,
+                                            yCoords,
+                                            zCoords,
+                                                  1) { }
 
-        CartesianLaplacian (const Basic_3D_DiffOp & other)
+        CartesianGradient (const Basic_3D_DiffOp & other)
 
-                                 : Basic_3D_DiffOp (other) { }
+                                : Basic_3D_DiffOp (other) { }
 
         /*************
          * OPERATORS *
@@ -81,19 +81,19 @@ class CartesianLaplacian : public Basic_3D_DiffOp
          * ---------
          *  Returns
          * ---------
-         * Double value equal to numerical Laplace operator at given point.
+         * QPoint structure equal to numerical gradient at given point.
          *
          * ------------
          *  Exceptions
          * ------------
          * None.
          */
-        double eval(const QGrid & xVals,
+        QPoint eval(const QGrid & xVals,
                     const QGrid & yVals,
                     const QGrid & zVals);
 
-}; /* class CartesianLaplacian */
+}; /* class CartesianGradient */
 
 } /* namespace GridDiff */
 
-#endif /* GRIDDIFF_CARTESIANLAPLACIAN_H */
+#endif /* GRIDDIFF_CARTESIANGRADIENT_H */

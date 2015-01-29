@@ -63,7 +63,7 @@ namespace GridDiff
  */
 class Basic_3D_DiffOp
 {
-    private:
+    protected:
         /* Points coordinates as which operator is evaluated. */
         QPoint     mQ0Point;
         /* Grid point coordinates at qi axis (i=1,2,3). */
@@ -78,7 +78,6 @@ class Basic_3D_DiffOp
         /* Highest derivative order, which class can use. */
         unsigned   mMaxOrder;
 
-    protected:
         /*
          * fEvalQiDiff() (i=1,2,3)
          *

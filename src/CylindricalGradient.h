@@ -1,16 +1,16 @@
 /*
- * File: CylindricalLaplacian.h
+ * File: CylindricalGradient.h
  * Author(s): P Kuszaj
- * Last changed: 28.01.2015
+ * Last changed: 29.01.2015
  *
- * A header file providing CylindricalLaplacian class used for evaluating
- * Laplace operator at a given point in cylindrical coordinate system using
- * given grid points along rho, phi and z axes. For further information please
- * see basic_3D_diffop.h header file.
+ * A header file providing CylindricalGradient class used for evaluating
+ * gradient at a given point in cylindrical coordinate system using given
+ * grid points along rho, phi and z axes. For further information please see
+ * basic_3D_diffop.h header file.
  */
 
-#ifndef GRIDDIFF_CYLINDRICALLAPLACIAN_H
-#define GRIDDIFF_CYLINDRICALLAPLACIAN_H
+#ifndef GRIDDIFF_CYLINDRICALGRADIENT_H
+#define GRIDDIFF_CYLINDRICALGRADIENT_H
 
 #include "basic_3D_diffop.h"  /* Basic_3D_DiffOp */
 
@@ -18,12 +18,12 @@ namespace GridDiff
 {
 
 /*
- * CartesianLaplacian class
+ * CylindricalGradient class
  *
- * Allows evaluation of Laplace operator at a given point in cylindrical
- * coordinate system using given grid points along rho, phi and z axes.
+ * Allows evaluation of gradient at a given point in cylindrical
+ * coordinate system using given grid points along rho, rhi and z axes.
  */
-class CylindricalLaplacian : public Basic_3D_DiffOp
+class CylindricalGradient : public Basic_3D_DiffOp
 {
     public:
         /*************
@@ -35,20 +35,20 @@ class CylindricalLaplacian : public Basic_3D_DiffOp
          * constructors simply call the parent class constructors.
          * For further information please see basic_3D_diffop.h header file.
          */
-        CylindricalLaplacian (const QPoint   &   r0Point,
-                              const QGrid    & rhoCoords,
-                              const QGrid    & phiCoords,
-                              const QGrid    &   zCoords)
+        CylindricalGradient (const QPoint   &   r0Point,
+                             const QGrid    & rhoCoords,
+                             const QGrid    & phiCoords,
+                             const QGrid    &   zCoords)
 
-                            : Basic_3D_DiffOp (  r0Point,
-                                               rhoCoords,
-                                               phiCoords,
-                                                 zCoords,
-                                                       2) { }
+                           : Basic_3D_DiffOp (  r0Point,
+                                              rhoCoords,
+                                              phiCoords,
+                                                zCoords,
+                                                      1) { }
 
-        CylindricalLaplacian (const Basic_3D_DiffOp & other)
+        CylindricalGradient (const Basic_3D_DiffOp & other)
 
-                                   : Basic_3D_DiffOp (other) { }
+                                : Basic_3D_DiffOp (other) { }
 
         /*************
          * OPERATORS *
@@ -84,19 +84,19 @@ class CylindricalLaplacian : public Basic_3D_DiffOp
          * ---------
          *  Returns
          * ---------
-         * Double value equal to numerical Laplace operator at given point.
+         * QPoint structure equal to numerical gradient at given point.
          *
          * ------------
          *  Exceptions
          * ------------
          * None.
          */
-        double eval(const QGrid & rhoVals,
+        QPoint eval(const QGrid & rhoVals,
                     const QGrid & phiVals,
                     const QGrid &   zVals);
 
-}; /* class CylindricalLaplacian */
+}; /* class CylindricalGradient */
 
 } /* namespace GridDiff */
 
-#endif /* GRIDDIFF_CYLINDRICALLAPLACIAN_H */
+#endif /* GRIDDIFF_CYLINDRICALGRADIENT_H */

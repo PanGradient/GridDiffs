@@ -1,16 +1,16 @@
 /*
- * File: SphericalLaplacian.h
+ * File: SphericalGradient.h
  * Author(s): P Kuszaj
- * Last changed: 28.01.2015
+ * Last changed: 29.01.2015
  *
- * A header file providing SphericalLaplacian class used for evaluating
- * Laplace operator at a given point in spherical coordinate system using
+ * A header file providing SphericalGradient class used for evaluating
+ * gradient at a given point in spherical coordinate system using
  * given grid points along r, theta and phi axes. For further information
  * please see basic_3D_diffop.h header file.
  */
 
-#ifndef GRIDDIFF_SPHERICALLAPLACIAN_H
-#define GRIDDIFF_SPHERICALLAPLACIAN_H
+#ifndef GRIDDIFF_SPHERICALGRADIENT_H
+#define GRIDDIFF_SPHERICALGRADIENT_H
 
 #include "basic_3D_diffop.h"  /* Basic_3D_DiffOp */
 
@@ -18,12 +18,12 @@ namespace GridDiff
 {
 
 /*
- * SphericalLaplacian class
+ * SphericalGradient class
  *
- * Allows evaluation of Laplace operator at a given point in spherical
+ * Allows evaluation of gradient at a given point in spherical
  * coordinate system using given grid points along r, theta and phi axes.
  */
-class SphericalLaplacian : public Basic_3D_DiffOp
+class SphericalGradient : public Basic_3D_DiffOp
 {
     public:
         /*************
@@ -35,20 +35,20 @@ class SphericalLaplacian : public Basic_3D_DiffOp
          * constructors simply call the parent class constructors.
          * For further information please see basic_3D_diffop.h header file.
          */
-        SphericalLaplacian (const QPoint &     r0Point,
-                            const QGrid  &     rCoords,
-                            const QGrid  & thetaCoords,
-                            const QGrid  &   phiCoords)
+        SphericalGradient (const QPoint &     r0Point,
+                           const QGrid  &     rCoords,
+                           const QGrid  & thetaCoords,
+                           const QGrid  &   phiCoords)
 
-                        : Basic_3D_DiffOp (    r0Point,
-                                               rCoords,
-                                           thetaCoords,
-                                             phiCoords,
-                                                     2) { }
+                       : Basic_3D_DiffOp (    r0Point,
+                                              rCoords,
+                                          thetaCoords,
+                                            phiCoords,
+                                                    1) { }
 
-        SphericalLaplacian (const Basic_3D_DiffOp & other)
+        SphericalGradient (const Basic_3D_DiffOp & other)
 
-                                 : Basic_3D_DiffOp (other) { }
+                                : Basic_3D_DiffOp (other) { }
 
         /*************
          * OPERATORS *
@@ -85,7 +85,7 @@ class SphericalLaplacian : public Basic_3D_DiffOp
          * ---------
          *  Returns
          * ---------
-         * Double value equal to numerical Laplace operator at given point.
+         * QPoint structure equal to numerical gradient at given point.
          *
          * ------------
          *  Exceptions
@@ -96,8 +96,8 @@ class SphericalLaplacian : public Basic_3D_DiffOp
                     const QGrid & thetaVals,
                     const QGrid &   phiVals);
 
-}; /* class SphericalLaplacian */
+}; /* class SphericalGradient */
 
 } /* namespace GridDiff */
 
-#endif /* GRIDDIFF_SPHERICALLAPLACIAN_H */
+#endif /* GRIDDIFF_SPHERICALGRADIENT_H */
